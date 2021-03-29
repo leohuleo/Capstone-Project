@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Create Your User Here</h1>
-    <form action="#" th:action="@{/user/create}" th:object="${user}" method="post">
+    <form action="#" th:action="@{/users/create}" th:object="${user}" method="post">
         <!--when submitted, the form will be sent in a POST request to /create, and the inputs will correspond to the USER object-->
         <p>Username: <input type="text" th:field="*{username}" /></p>
         <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Invalid Username</p>

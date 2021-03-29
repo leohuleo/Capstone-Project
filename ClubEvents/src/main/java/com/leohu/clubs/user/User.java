@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 public class User {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false, unique = true)
@@ -26,7 +26,13 @@ public class User {
     @Size(min=2,max=15, message= "Size Must Be Between 2 - 15 Characters")
     private String username;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     @Size(min=6,max=20, message = "Size Must be Between 6 - 20 Characters")
     private String password;
+
+    @Column(nullable = false)
+    private boolean enabled;
+
+    @Column(nullable = false)
+    private String role = "ROLE_USER";
 }

@@ -12,22 +12,11 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-@RequestMapping(path="/user")
+@RequestMapping(path="/users")
 public class UserController {
+
     @Autowired
     private UserRepository userRepository;
-
-    @PostMapping(path="/add")//Map only POST requests
-    public @ResponseBody String addNewUser(@RequestParam String name, @RequestParam String email){
-        //@ResponseBody means the returned String is the response, not a view name
-        //@RequestParam means it is a parameter from the GET or POST request
-        User n = new User();
-        n.setUsername(name);
-        n.setEmail(email);
-        n.setPassword("123456");
-        userRepository.save(n);
-        return "Saved";
-    }
 
     @GetMapping(path="/create")
     public String userCreationForm(Model model){
@@ -41,12 +30,13 @@ public class UserController {
         if(bindingResult.hasErrors()){
             return "userCreationForm";
         }
+        user.setEnabled(true);
         userRepository.save(user);
         model.addAttribute("user", user);
         return "userCreationFormResult";
     }
 
-    @GetMapping(path="/allUser")
+    @GetMapping(path="/allUsers")
     public @ResponseBody List<User> allUser(){
         return userRepository.findAll();
     }
