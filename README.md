@@ -9,6 +9,10 @@ Basic Workflow:
 
 Update Log
 
+03282021
+1. Added login (plain password) by jdbc authentication
+2. replace automatic generation of entity table with manual generation by schema.sql
+
 03202021
 1. Added user creation validation
 
