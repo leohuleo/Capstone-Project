@@ -1,0 +1,8 @@
+com/leohu/clubs/security/AccessRules.class
+com/leohu/clubs/security/SecurityConfig.class
+com/leohu/clubs/user/UserController.class
+com/leohu/clubs/user/User.class
+com/leohu/clubs/security/PasswordEncoderConfig.class
+com/leohu/clubs/MainController.class
+com/leohu/clubs/ClubsApplication.class
+com/leohu/clubs/user/UserRepository.class
