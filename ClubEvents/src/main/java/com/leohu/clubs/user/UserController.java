@@ -2,6 +2,7 @@ package com.leohu.clubs.user;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,21 +19,25 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping(path="/create")
     public String userCreationForm(Model model){
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new UserRegistration());
         return "userCreationForm";
     }
 
     @PostMapping(path="/create")
-    public String userCreationFormSubmit(@ModelAttribute @Valid User user, BindingResult bindingResult, Model model){
+    public String userCreationFormSubmit(@ModelAttribute @Valid UserRegistration userRegistration, BindingResult bindingResult, Model model){
 
         if(bindingResult.hasErrors()){
             return "userCreationForm";
         }
-        user.setEnabled(true);
+        User user = userRegistration.getNewUser();
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
-        model.addAttribute("user", user);
+        model.addAttribute("user", userRegistration);
         return "userCreationFormResult";
     }
 

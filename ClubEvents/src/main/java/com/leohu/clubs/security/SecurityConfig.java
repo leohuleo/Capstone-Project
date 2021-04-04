@@ -22,11 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     DataSource dataSource;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
+                .passwordEncoder(passwordEncoder)
                 .usersByUsernameQuery("select username,password,enabled "
                                         +"from user "
                                         +"where username = ?")
@@ -42,10 +45,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(FOR_EVERYONE).permitAll()
                 .and().formLogin();
     }
-
-    @Bean
-    public PasswordEncoder getPasswordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
-    }
-
 }

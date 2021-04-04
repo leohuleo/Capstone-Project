@@ -17,17 +17,13 @@ public class User {
 
     @Column(nullable = false, unique = true)
     @NotNull
-    @Size(min=1,max=30)
-    @Email(message="Must Be A Valid Email")
     private String email;
 
     @Column(nullable = false, unique = true)
     @NotNull
-    @Size(min=2,max=15, message= "Size Must Be Between 2 - 15 Characters")
     private String username;
 
     @Column(nullable = false)
-    @Size(min=6,max=20, message = "Size Must be Between 6 - 20 Characters")
     private String password;
 
     @Column(nullable = false)
