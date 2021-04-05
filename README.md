@@ -9,6 +9,10 @@ Basic Workflow:
 
 Update Log
 
+04042021
+1. Added password encoder configuration (BCryptPasswordEncoder)
+2. Created a new Class "UserRegistration", which is responsible for validating form input (separated it from the database model "User")
+
 03282021
 1. Added login (plain password) by jdbc authentication
 2. replace automatic generation of entity table with manual generation by schema.sql
