@@ -13,29 +13,29 @@ Open with IntelliJ:
 Overview Structure of the Application:
 
   Open to All:
-  /
-    1. Home Page
-    2. Display all clubs in the "clubs" table in the database
+    /
+      1. Home Page
+      2. Display all clubs in the "clubs" table in the database
     
-  /users/create
-    1. Register a user here
+   /users/create
+      1. Register a user here
 
   Open to Users:
-  /users/myProfile
-    1. Display the username & email of the current logged in user
+    /users/myProfile
+      1. Display the username & email of the current logged in user
 
-  /clubs/create
-    1. Record a club
+    /clubs/create
+      1. Record a club
 
-  /logout
-    1. Log out
+    /logout
+      1. Log out
 
   Open to Admin:
-  /admin
-    1. Admin home page (no function implemented yet)
+    /admin
+      1. Admin home page (no function implemented yet)
 
-  /admin/allUsers
-    1. Show a list of all usernames, passwords & roles.
+    /admin/allUsers
+      1. Show a list of all usernames, passwords & roles.
 
 Update Log
 
