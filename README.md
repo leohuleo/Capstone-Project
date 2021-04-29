@@ -6,7 +6,7 @@ The project will be done using Spring Java as the framework in combination with 
 How To Use:
 Open with IntelliJ:
   1. Within applicatin.property, change the database settings to your own (need to be mySQL)
-  2. Run the application as how you will run a normal spring application
+  2. Run the application as how you will run a normal spring application (Note: on each run, the application will reset the database)
   3. schema.sql will create tables in the database automatically
   4. data.sql will fill in two default rows of users: demoUser and demoAdmin, both could be used to sign in with password 123456
 
