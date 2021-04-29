@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments/head :: head">
 </head>
 <body>
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <div class = "container" style="width:60%; margin:auto; margin-top:10%">
-    <ul class = "list-group" th:each="user : ${userList}">
+    <ul class = "list-group" th:each="club : ${clubList}">
         <li class="list-group-item">
-            <p th:text="${user.username}"></p>
+            <p th:text="${club.title}"></p>
         </li>
         <li class="list-group-item">
-            <p th:text="${user.password}"></p>
-        </li>
-        <li class="list-group-item">
-            <p th:text="${user.role}"></p>
+            <p th:text="${club.description}"></p>
         </li>
         <br>
     </ul>

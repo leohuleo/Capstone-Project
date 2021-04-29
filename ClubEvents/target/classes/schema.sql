@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS user;
+
 CREATE TABLE IF NOT EXISTS user(
     id INT(6) AUTO_INCREMENT NOT NULL,
     username VARCHAR(50) NOT NULL,
@@ -8,4 +10,15 @@ CREATE TABLE IF NOT EXISTS user(
     PRIMARY KEY(id),
     UNIQUE(username),
     UNIQUE(email)
+);
+
+DROP TABLE IF EXISTS club;
+
+CREATE TABLE IF NOT EXISTS club(
+    id INT(6) AUTO_INCREMENT NOT NULL,
+    creator VARCHAR(50) NOT NULL,
+    title VARCHAR(50) NOT NULL,
+    description TEXT NOT NULL,
+    isactive BOOLEAN NOT NULL,
+    PRIMARY KEY(id)
 );

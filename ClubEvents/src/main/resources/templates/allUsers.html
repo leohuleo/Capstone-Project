@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>All Users</title>
+<head th:replace="fragments/head :: head">
 </head>
 <body>
+<nav th:replace="fragments/navbar :: navbar"></nav>
+<div class = "container" style="width:60%; margin:auto; margin-top:10%">
+    <ul class = "list-group" th:each="user : ${userList}">
+        <li class="list-group-item">
+            <p th:text="${user.username}"></p>
+        </li>
+        <li class="list-group-item">
+            <p th:text="${user.password}"></p>
+        </li>
+        <li class="list-group-item">
+            <p th:text="${user.role}"></p>
+        </li>
+        <br>
+    </ul>
+</div>
+<div th:replace="fragments/footer::footer"></div>
 </body>
 </html>

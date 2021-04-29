@@ -9,12 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 import javax.sql.DataSource;
 
-import static com.leohu.clubs.security.AccessRules.FOR_ADMINS;
-import static com.leohu.clubs.security.AccessRules.FOR_EVERYONE;
+import static com.leohu.clubs.security.AccessRules.*;
 
 @EnableWebSecurity
 @Configuration
@@ -42,7 +42,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers(FOR_ADMINS).hasRole("ADMIN")
+                .antMatchers(FOR_AUTHORIZED_USERS).hasRole("USER")
                 .antMatchers(FOR_EVERYONE).permitAll()
-                .and().formLogin();
+                .and().formLogin().loginPage("/login").permitAll()
+                .and()
+                    .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/")
+                    .invalidateHttpSession(true)
+                    .deleteCookies("auth_code","JSESSIONID")
+                    .permitAll();
     }
 }

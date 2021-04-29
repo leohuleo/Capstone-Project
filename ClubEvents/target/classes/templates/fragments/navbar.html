@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="head :: head">
+</head>
+<body>
+<nav th:fragment="navbar" class="navbar shadow p-4 mb-4 navbar-expand-sm bg-light fixed-top">
+    <a th:href=" @{~/}" class="navbar-brand" style="margin-left: 10px; font-size:30px">Lord Byng Clubs</a>
+    <ul class="navbar-nav">
+        <li class = "navbar-item ml-5" sec:authorize="!isAuthenticated()">
+            <a class = "nav-link" th:href="@{~/users/create}">Sign up</a>
+        </li>
+        <li class = "navbar-item ml-5" sec:authorize="!isAuthenticated()">
+            <a class = "nav-link" th:href="@{~/login}">Sign in</a>
+        </li>
+        <li class = "navbar-item ml-5" sec:authorize="hasRole('ADMIN')">
+            <a class = "nav-link" th:href="@{~/admin/allUsers}">All Users</a>
+        </li>
+        <li class = "navbar-item ml-5" sec:authorize="hasRole('USER') || hasRole('ADMIN')">
+            <a class = "nav-link" th:href="@{~/clubs/create}">New Club</a>
+        </li>
+        <li class = "navbar-item ml-5" sec:authorize="hasRole('USER') || hasRole('ADMIN')">
+            <a class = "nav-link" th:href="@{~/users/myprofile}">My Profile</a>
+        </li>
+        <li class = "navbar-item ml-5" sec:authorize="hasRole('USER') || hasRole('ADMIN')">
+            <a class = "nav-link" th:href="@{~/logout}">Logout</a>
+        </li>
+    </ul>
+
+</nav>
+</body>
+</html>

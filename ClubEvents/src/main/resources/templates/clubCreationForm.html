@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/head::head">
+</head>
+<body>
+<nav th:replace="fragments/navbar::navbar"></nav>
+<div style="width:60%; margin:auto; margin-top:10%; border: 1px solid darkgrey; padding:10%">
+    <form name="f" th:action="@{/clubs/create}" th:object="${clubRegistration}" method="post">
+        <fieldset>
+            <legend>Record Your Club Here</legend>
+            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="alert alert-error">
+                Invalid Club Name
+            </div>
+            <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="alert alert-error">
+                Invalid Description
+            </div>
+            <div>
+                <label for="title">Club Name</label><br>
+                <input type="text" id="title" class="form-control" name="title" th:field="*{title}" />
+            </div>
+            <div>
+                <label for="description">Description </label><br>
+                <textarea class="form-control" id="description" rows="4" cols="50" name="descriptionn" th:field="*{description}"/>
+            </div>
+            <div class="form-actions" style="margin:auto; margin-top: 30px; width:50%; text-align:center">
+                <button type="submit" class="btn btn-primary" style="">Create</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

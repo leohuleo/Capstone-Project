@@ -8,11 +8,13 @@ public class AccessRules {
     };
 
     protected static final String[] FOR_AUTHORIZED_USERS = {
-            "/user/**"
+            "/users/**",
+            "/clubs/**"
     };
 
     protected static final String[] FOR_ADMINS = {
             "/admin/**",
-            "/users/**"
+            "/users/**",
+            "/clubs/**"
     };
 }

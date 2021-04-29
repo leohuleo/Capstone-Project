@@ -1,2 +1,5 @@
 INSERT INTO user(id, username, email, password, enabled, role)
-    VALUES(default,'admin','leohu0422@gmail.com','$2y$10$p1JAbPBH2YzzIzwtEj8iGO4UD858WvrbS7lFpRP8m3HH9kPRJpthe',true,'ROLE_ADMIN');
+    VALUES(default, 'demoUser', '123@gmail.com', '$2a$10$ttzFFfwf4ey2AkCV/ZwRCeXQZs9sltiFswbutAM1NIzGhr46Taveq', true, 'ROLE_USER');
+
+INSERT INTO user(id, username, email, password, enabled, role)
+    VALUES(default, 'demoAdmin','1234@gmail.com','$2a$10$ttzFFfwf4ey2AkCV/ZwRCeXQZs9sltiFswbutAM1NIzGhr46Taveq',true,'ROLE_ADMIN');
