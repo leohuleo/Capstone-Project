@@ -3,7 +3,9 @@
 <head th:replace="fragments/head::head">
 </head>
 <body>
-<nav th:replace="fragments/navbar::navbar"></nav>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+</div>
     <div style="width:60%; margin:auto; margin-top:10%; border: 1px solid darkgrey; padding:10%">
         <form name="f" th:action="@{/users/create}" th:object="${userRegistration}" method="post">
             <fieldset>

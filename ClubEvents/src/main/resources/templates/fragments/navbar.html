@@ -20,7 +20,7 @@
             <a class = "nav-link" th:href="@{~/clubs/create}">New Club</a>
         </li>
         <li class = "navbar-item ml-5" sec:authorize="hasRole('USER') || hasRole('ADMIN')">
-            <a class = "nav-link" th:href="@{~/users/myprofile}">My Profile</a>
+            <a class = "nav-link" th:href="@{~/myprofile}">My Profile</a>
         </li>
         <li class = "navbar-item ml-5" sec:authorize="hasRole('USER') || hasRole('ADMIN')">
             <a class = "nav-link" th:href="@{~/logout}">Logout</a>

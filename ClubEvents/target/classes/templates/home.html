@@ -3,7 +3,9 @@
 <head th:replace="fragments/head :: head">
 </head>
 <body>
-<nav th:replace="fragments/navbar :: navbar"></nav>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+</div>
 <div class = "container" style="width:60%; margin:auto; margin-top:10%">
     <ul class = "list-group" th:each="club : ${clubList}">
         <li class="list-group-item">
@@ -12,7 +14,6 @@
         <li class="list-group-item">
             <p th:text="${club.description}"></p>
         </li>
-        <br>
     </ul>
 </div>
 <div th:replace="fragments/footer::footer"></div>

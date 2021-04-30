@@ -42,12 +42,4 @@ public class UserController {
         return "userCreationFormResult";
     }
 
-    @GetMapping(path = "/myprofile")
-    public String userProfile(Authentication authentication, Model model){
-        String username = authentication.getName();
-        User user = userRepository.findByUsername(username);
-        model.addAttribute("user",user);
-        return "userProfile";
-    }
-
 }

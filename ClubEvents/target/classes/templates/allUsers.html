@@ -3,7 +3,9 @@
 <head th:replace="fragments/head :: head">
 </head>
 <body>
-<nav th:replace="fragments/navbar :: navbar"></nav>
+<div class="container">
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+</div>
 <div class = "container" style="width:60%; margin:auto; margin-top:10%">
     <ul class = "list-group" th:each="user : ${userList}">
         <li class="list-group-item">
