@@ -1,7 +1,10 @@
 # Capstone-Project
 Capstone Project for Leo Hu
-The goal of the project is to create a platform where users can see the details of organizations in school
-The project will be done using Spring Java as the framework in combination with Thymeleaf to implement a MVC structure
+
+The goal of the project is to showcase my learning in programming & several frameworks by creating a platform where club presidents can archive their clubs
+
+Frameworks Used:
+Spring Boot (Java) + Thymeleaf (HTML) + BootStrap 4 (CSS) 
 
 How To Use:
 Open with IntelliJ:
